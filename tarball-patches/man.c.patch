@@ -1,13 +1,12 @@
-diff --git a/src/man.c b/src/man.c
-index 5d3be39..6d71087 100644
---- a/src/man.c
-+++ b/src/man.c
-@@ -4479,8 +4479,25 @@ int main (int argc, char *argv[])
+diff --git i/src/man.c w/src/man.c
+index 8b09db1..88d42ff 100644
+--- i/src/man.c
++++ w/src/man.c
+@@ -4461,9 +4461,26 @@ int main (int argc, char *argv[])
  					if (!section && maybe_section &&
  					    CTYPE (isdigit, nextarg[0]))
  						gripe_no_name (nextarg);
 -					else
--						gripe_no_man (nextarg, section);
 +					else {
 +#if __MVS__
 +            char* fmt = "/bin/man %s %s 2>/dev/null";
@@ -25,7 +24,8 @@ index 5d3be39..6d71087 100644
 +            }
 +          }
 +#else
-+					gripe_no_man (nextarg, section);
+ 						gripe_no_man (nextarg,
+ 						              section);
 +#endif
  				}
  			}

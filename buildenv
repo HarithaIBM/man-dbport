@@ -9,6 +9,7 @@ export ZOPEN_DEV_DEPS="git make xz gzip tar pkgconfig flex libtool autoconf auto
 export ZOPEN_STABLE_URL="https://download.savannah.nongnu.org/releases/man-db/man-db-${MAN_DB_VERSION}.tar.xz"
 export ZOPEN_STABLE_DEPS="curl make xz gzip libtool autoconf automake gettext m4 perl zoslib wget coreutils libiconv libgdbm ncurses libpipeline groff less sed grep diffutils"
 export ZOPEN_EXTRA_CONFIGURE_OPTS='--disable-cache-owner'
+export ZOPEN_EXTRA_CFLAGS='-DZOSLIB_OVERRIDE_CLIB_ERROR'
 export LESSCHARSET=utf-8
 export ZOPEN_RUNTIME_DEPS="groff libiconv less ncurses"
 export ZOPEN_COMP="CLANG"

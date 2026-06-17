@@ -1,0 +1,16 @@
+diff --git a/gl/lib/tempname.c b/gl/lib/tempname.c
+index 446ddea..6ed2829 100644
+--- a/gl/lib/tempname.c
++++ b/gl/lib/tempname.c
+@@ -92,9 +92,11 @@ mix_random_values (random_value r, random_value s)
+ static bool
+ random_bits (random_value *r, random_value s)
+ {
++#ifndef __MVS__
+   /* Without GRND_NONBLOCK it can be blocked for minutes on some systems.  */
+   if (__getrandom (r, sizeof *r, GRND_NONBLOCK) == sizeof *r)
+     return true;
++#endif
+ 
+   /* If getrandom did not work, use ersatz entropy based on low-order
+      clock bits.  On GNU systems getrandom should fail only
